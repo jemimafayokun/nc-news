@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getArticleById } from "../api";
+import { getArticleById, patchArticle } from "../api";
 import { useParams } from "react-router-dom";
 import CommentList from "./CommentList";
 
@@ -20,6 +20,16 @@ const IndividualArticle = () => {
       });
   }, [articleId]);
 
+const upVote = (article_id) => {
+patchArticle(article_id)
+
+setArticle((currArticle) => ({
+    ...currArticle,
+    votes: currArticle.votes + 1,
+  }));
+
+}
+
   return (
     <div className="article-card">
       {isLoading && <p>Loading...</p>}
@@ -34,8 +44,8 @@ const IndividualArticle = () => {
           <p className="article-body">{article.body}</p>
           {article.article_img_url && <img src={article.article_img_url} alt="Article" />}
           <div className="vote-comment-container">
-            <p className="article-votes">Votes: {article.votes}</p>
-            <p className="article-comment-count">Comment Count: {article.comment_count}</p>
+            <button onClick={() => upVote(article.article_id)}className="article-vote-button">Vote Here!</button>
+            <p className="article-vote">{article.votes}</p>
           </div>
           <CommentList />
         </>

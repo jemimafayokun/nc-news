@@ -22,7 +22,7 @@ const CommentList = () => {
 
   return (
     <div>
-      <h2>Comments:</h2>
+      <h1 className="comments-header">Comments:</h1>
       {isLoading && <p>Loading...</p>}
       {!isLoading && comments.length === 0 && <p>No comments found.</p>}
       {!isLoading && comments.length > 0 && (
