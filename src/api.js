@@ -26,7 +26,17 @@ export const patchArticle = (id) => {
     inc_votes: 1
   }
   return newsApi.patch(`/articles/${id}`, patchBody).then(({data}) => {
-    console.log(data.article)
     return data.article
+  })
+}
+
+export const postComment = (newComment, id) => {
+  const postBody = {
+    username: "grumpy19",
+    body: newComment,
+  }
+  return newsApi.post(`/articles/${id}/comments`, postBody).then(({data}) => {
+    console.log(data.comment)
+    return data.comment
   })
 }
