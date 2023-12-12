@@ -13,7 +13,7 @@ function App() {
     
     <BrowserRouter>
     <div>
-    <section class="fixed-elements-container">
+    <section className="fixed-elements-container">
     <Header/>
     <Navbar />
     </section>
