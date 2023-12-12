@@ -23,7 +23,6 @@ const CommentList = () => {
 
   return (
     <div>
-      <h1 className="comments-header">Comments:</h1>
       {isLoading && <p>Loading...</p>}
       {!isLoading && comments.length === 0 && 
       <section>
@@ -34,6 +33,7 @@ const CommentList = () => {
       {!isLoading && comments.length > 0 && (
         <ul>
         <CommentAdder setComments={setComments} articleId={articleId}/>
+        <h2 className="comments-header" >Comments: </h2>
           {comments.map((comment) => (
             <CommentCard comment={comment} key={comment.comment_id} />
           ))}

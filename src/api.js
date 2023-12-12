@@ -36,7 +36,6 @@ export const postComment = (newComment, id) => {
     body: newComment,
   }
   return newsApi.post(`/articles/${id}/comments`, postBody).then(({data}) => {
-    console.log(data.comment)
     return data.comment
   })
 }
