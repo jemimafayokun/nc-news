@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getArticleById } from "../api";
+import { getArticleById, patchArticle } from "../api";
 import { useParams } from "react-router-dom";
 import CommentList from "./CommentList";
 
 const IndividualArticle = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null); 
   const { articleId } = useParams();
 
   useEffect(() => {
@@ -17,12 +18,28 @@ const IndividualArticle = () => {
       .catch((error) => {
         console.error("Error fetching article:", error);
         setIsLoading(false);
+        setError("Failed to fetch article. Please check your internet connection or try again later."); 
       });
   }, [articleId]);
+
+  const upVote = (article_id) => {
+    patchArticle(article_id)
+      .then(() => {
+        setArticle((currArticle) => ({
+          ...currArticle,
+          votes: currArticle.votes + 1,
+        }));
+      })
+      .catch((error) => {
+        console.error("Error upvoting article:", error);
+        setError("Failed to upvote article. Please try again later.");
+      });
+  };
 
   return (
     <div className="article-card">
       {isLoading && <p>Loading...</p>}
+      {error && <p className="error-message">{error}</p>}
       {!isLoading && Object.keys(article).length === 0 && (
         <p>No article found.</p>
       )}
@@ -34,8 +51,10 @@ const IndividualArticle = () => {
           <p className="article-body">{article.body}</p>
           {article.article_img_url && <img src={article.article_img_url} alt="Article" />}
           <div className="vote-comment-container">
-            <p className="article-votes">Votes: {article.votes}</p>
-            <p className="article-comment-count">Comment Count: {article.comment_count}</p>
+            <button onClick={() => upVote(article.article_id)} className="article-vote-button">
+              Vote Here!
+            </button>
+            <p className="article-vote">{article.votes}</p>
           </div>
           <CommentList />
         </>
@@ -45,4 +64,3 @@ const IndividualArticle = () => {
 };
 
 export default IndividualArticle;
-

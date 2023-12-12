@@ -20,3 +20,13 @@ export const getCommentsByArticleId = (id) => {
     return data.comments
   })
 }
+
+export const patchArticle = (id) => {
+  const patchBody = {
+    inc_votes: 1
+  }
+  return newsApi.patch(`/articles/${id}`, patchBody).then(({data}) => {
+    console.log(data.article)
+    return data.article
+  })
+}
