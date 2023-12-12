@@ -1,6 +1,141 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+.fixed-elements-container{
+  display: flex;
+      flex-direction: column;
+}
+.title {
+  background-color: #f2f2f2;
+  color: red ;
+  padding: 10px;
+}
+
+nav{
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+.article-list{
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.5rem;
+  margin-left: 90px ;
+  width: 330px;
+}
+.article-card {
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #2a2828;
+  border-radius: 5px;
+  background-color: #fff;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-link {
+  text-decoration: none; 
+  color: inherit;
+}
+
+.article-topic {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff4500;
+  margin-right: auto;
+
+}
+
+.article-created-at{
+  font-size: 7px;
+  color: rgb(37, 37, 37);
+  margin-left: auto;
+  margin: 5px 0; 
+}
+.article-card img {
+  max-width: 75px; 
+  height: 75px;
+  margin-left: auto;
+  border-radius: 5px;
+}
+
+.article-title{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.article-body{
+  font-size: 10px;
+}
+.article-title, .article-body {
+  margin: 5px 0; 
+  margin-right: auto;
+}
+
+.vote-comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 30px;
+  margin-right: 90px;
+}
+
+.article-votes,
+.article-comment-count {
+  font-size: 8px;
+  color: #fff;
+  background-color: #888;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 1px 5px;
+}
+
+.comment-card {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  list-style: none;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #0079d3; /* Reddit's blue color for usernames */
+}
+
+.comment-body {
+  margin-top: 5px;
+  color: #333;
+}
+
+@media (max-width: 767px) {
+  .fixed-elements-container {
+    flex-direction: row;
+  }
+  header {
+    width: 100%;
+  }
+  .navbar {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  #root {
+    max-width: 1000px;
+  }
 }
