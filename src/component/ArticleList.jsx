@@ -5,15 +5,13 @@ import { getAllArticles, getArticleById } from "../api";
 const ArticleList = () => {
 
  const [articles, setArticles] = useState([])
- const [isLoading, setIsLoading] = useState(false)
+ const [isLoading, setIsLoading] = useState(true)
 
  useEffect(() => {
   getAllArticles().then((data) => {
    setArticles(data)
-   setIsLoading(true)
-  }).finally( () => {
-    setIsLoading(false);
-    })
+   setIsLoading(false)
+  })
  }, [])
 
  return (

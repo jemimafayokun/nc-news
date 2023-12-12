@@ -13,8 +13,10 @@ function App() {
     
     <BrowserRouter>
     <div>
+    <section class="fixed-elements-container">
     <Header/>
     <Navbar />
+    </section>
     <Routes>
     <Route path='/' element = {<Home />}  />
     <Route path='/articles/:articleId' element={<ArticlePage />} />

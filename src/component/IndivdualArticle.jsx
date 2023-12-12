@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react"
 import { getArticleById } from "../api"
 import { useParams } from 'react-router-dom';
+import CommentList from "./CommentList";
 
 const IndividualArticle = () => {
 const [article, setArticle] = useState({})
-const [isLoading, setIsLoading] = useState(false)
+const [isLoading, setIsLoading] = useState(true)
 const {articleId} = useParams();
 
     useEffect(() => {
         getArticleById(articleId).then((data) => {
          setArticle(data)
-         setIsLoading(true);
-        }).finally( () => {
-        setIsLoading(false);
+         setIsLoading(false);
         })
      }, [articleId])
       
@@ -29,6 +28,7 @@ const {articleId} = useParams();
         <p className="article-votes">Votes: {article.votes}</p>
         <p className="article-comment-count">Comment Count: {article.comment_count}</p>
         </div>
+    <CommentList />
      </div>
     )
 }

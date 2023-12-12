@@ -12,27 +12,21 @@
   padding: 2rem;
   text-align: center;
 }
-
-.title{
-  border: 2px solid black;
-  border-radius: 5px;
-  font-weight: 400;
-  text-align: left;
-  font-size: 28px;
-  left:0 ;
-  width: 400px;
-  padding: 5%;
+.fixed-elements-container{
+  display: flex;
+      flex-direction: column;
+}
+.title {
+  background-color: #f2f2f2;
+  color: red ;
+  padding: 10px;
 }
 
 nav{
-  border: 2px solid blue;
-  border-radius: 5px;
-  position:fixed;
-  left: 0;
-  padding: 1rem;
-  margin: 1rem;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
-
 .article-list{
   border-radius: 5px;
   padding: 1rem;
@@ -109,6 +103,37 @@ nav{
   margin: 1px 5px;
 }
 
+.comment-card {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  list-style: none;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #0079d3; /* Reddit's blue color for usernames */
+}
+
+.comment-body {
+  margin-top: 5px;
+  color: #333;
+}
+
+@media (max-width: 767px) {
+  .fixed-elements-container {
+    flex-direction: row;
+  }
+  header {
+    width: 100%;
+  }
+  .navbar {
+    width: 100%;
+  }
+}
 @media only screen and (min-width: 1000px) {
   #root {
     max-width: 1000px;
