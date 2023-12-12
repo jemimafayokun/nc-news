@@ -19,6 +19,7 @@
   font-weight: 400;
   text-align: left;
   font-size: 28px;
+  left:0 ;
   width: 400px;
   padding: 5%;
 }
@@ -33,7 +34,6 @@ nav{
 }
 
 .article-list{
-  /* border: 2px solid red ; */
   border-radius: 5px;
   padding: 1rem;
   margin: 0.5rem;
@@ -50,6 +50,11 @@ nav{
   justify-content: space-between;
   display: flex;
   flex-direction: column;
+}
+
+.article-link {
+  text-decoration: none; 
+  color: inherit;
 }
 
 .article-topic {
@@ -73,9 +78,15 @@ nav{
   border-radius: 5px;
 }
 
-.article-title {
-  font-size: 10px;
+.article-title{
   font-weight: bold;
+  font-size: 15px;
+}
+
+.article-body{
+  font-size: 10px;
+}
+.article-title, .article-body {
   margin: 5px 0; 
   margin-right: auto;
 }
@@ -95,5 +106,11 @@ nav{
   background-color: #888;
   border-radius: 5px;
   padding: 5px;
-  margin: 1px 0;
+  margin: 1px 5px;
+}
+
+@media only screen and (min-width: 1000px) {
+  #root {
+    max-width: 1000px;
+  }
 }
