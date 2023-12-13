@@ -3,10 +3,12 @@ const newsApi = axios.create({
   baseURL: "https://news-reporter-vg30.onrender.com/api",
 });
 
-export const getAllArticles = (topic) => {
+export const getAllArticles = (topic, sortBy, orderBy) => {
   return newsApi.get(`/articles`, {
     params: {
-      topic: topic
+      topic:topic,
+      sort_by: sortBy,
+      order_by: orderBy
     }}
     ).then(({ data }) => {
     return data.articles;

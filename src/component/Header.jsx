@@ -22,16 +22,16 @@ getTopics().then((data) => {
       <Link className="link" to="/">
         <h1 className="title" >NewsBox</h1>
         </Link>
-        <div class="dropdown">
-          <span class="topic-span">Topics▼</span>
-          <ul class="topic-options">
+        <div className="dropdown">
+          <span className="dropdown-span">Topics▼</span>
+          <ul className="dropdown-content">
             {topics.map((topic) => (
              <Link className="link" key={topic.slug} to={`articles/topics/${topic.slug}`} ><li >{topic.slug}</li></Link> 
             ))}
           </ul>
         </div>
       </div>
-      <p class="login-statement">Logged in as: {user}</p>
+      <p className="login-statement">Logged in as: {user}</p>
     </main> 
     
   );

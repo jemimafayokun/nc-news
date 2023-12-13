@@ -5,12 +5,14 @@ import { useParams } from "react-router-dom";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [orderBy, setOrderBy] = useState("DESC");
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    getAllArticles(topic)
+    getAllArticles(topic, sortBy, orderBy)
       .then((data) => {
         setArticles(data);
         setIsLoading(false);
@@ -19,19 +21,47 @@ const ArticleList = () => {
         console.error("Error fetching articles:", error);
         setIsLoading(false);
       });
-  }, [topic]); 
+  }, [topic, sortBy, orderBy]);
+
+  const handleSortBy = (event) => {
+    setSortBy(event.target.id);
+  };
+
+  const handleOrderBy = (event) => {
+    setOrderBy(event.target.innerText);
+  };
 
   return (
-    <div>
-      {!isLoading && articles.length === 0 && <p>No articles found.</p>}
-      <ul className="article-list">
-        {isLoading && <p>Loading...</p>}
-        {!isLoading &&
-          articles.map((article) => {
-            return <ArticleCard article={article} key={article.article_id} />;
-          })}
-      </ul>
-    </div>
+    <main className="articles-container">
+      <div className="filter">
+        <section className="dropdown">
+          <span className="dropdown-span">Sort Articles by▼</span>
+          <div className="dropdown-content" onClick={handleSortBy}>
+            <p id={"created_at"}>Date</p>
+            <p id={"votes"}>Votes</p>
+            <p id={"comment_count"}>Comments</p>
+          </div>
+        </section>
+
+        <section className="dropdown">
+          <span className="dropdown-span">Order Articles by▼</span>
+          <div className="dropdown-content" onClick={handleOrderBy}>
+            <p>ASC</p>
+            <p>DESC</p>
+          </div>
+        </section>
+      </div>
+      <section>
+        {!isLoading && articles.length === 0 && <p>No articles found.</p>}
+        <ul className="article-list">
+          {isLoading && <p>Loading...</p>}
+          {!isLoading &&
+            articles.map((article) => {
+              return <ArticleCard article={article} key={article.article_id} />;
+            })}
+        </ul>
+      </section>
+    </main>
   );
 };
 
