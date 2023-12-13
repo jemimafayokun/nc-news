@@ -34,8 +34,9 @@ const CommentList = () => {
         <ul>
         <CommentAdder setComments={setComments} articleId={articleId}/>
         <h2 className="comments-header" >Comments: </h2>
+        <h2 className="comments-number">({comments.length} comments)</h2>
           {comments.map((comment) => (
-            <CommentCard comment={comment} key={comment.comment_id} />
+            <CommentCard comment={comment} setComments={setComments} key={comment.comment_id} />
           ))}
         </ul>
       )}
