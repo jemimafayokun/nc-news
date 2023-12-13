@@ -16,8 +16,8 @@ getTopics().then((data) => {
 
   return (
     
-    <body>
-    <main class="main">
+    
+    <main className="main">
       <div>
       <Link className="link" to="/">
         <h1 className="title" >NewsBox</h1>
@@ -26,14 +26,14 @@ getTopics().then((data) => {
           <span class="topic-span">Topics▼</span>
           <ul class="topic-options">
             {topics.map((topic) => (
-             <Link className="link" to={`articles/topics/${topic.slug}`} ><li key={topic.slug}>{topic.slug}</li></Link> 
+             <Link className="link" key={topic.slug} to={`articles/topics/${topic.slug}`} ><li >{topic.slug}</li></Link> 
             ))}
           </ul>
         </div>
       </div>
       <p class="login-statement">Logged in as: {user}</p>
     </main> 
-    </body>
+    
   );
 };
 
