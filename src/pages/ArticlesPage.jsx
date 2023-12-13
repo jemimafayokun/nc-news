@@ -1,9 +1,9 @@
 import ArticleList from "../component/ArticleList";
 
-export default function Home() {
 
+export default function Articles() {
     return (
-        <main>
+        <main className="home">
             <ArticleList/>
         </main>
     )

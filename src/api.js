@@ -3,8 +3,12 @@ const newsApi = axios.create({
   baseURL: "https://news-reporter-vg30.onrender.com/api",
 });
 
-export const getAllArticles = () => {
-  return newsApi.get("/articles").then(({ data }) => {
+export const getAllArticles = (topic) => {
+  return newsApi.get(`/articles`, {
+    params: {
+      topic: topic
+    }}
+    ).then(({ data }) => {
     return data.articles;
   });
 };
@@ -42,5 +46,11 @@ export const postComment = (newComment, id) => {
 
 export const deleteComment = (commentId) => {
   return newsApi.delete(`/comments/${commentId}`).then(() => {
+  })
+}
+
+export const getTopics = () => {
+  return newsApi.get(`/topics`).then (({data}) => {
+    return data.topics
   })
 }
