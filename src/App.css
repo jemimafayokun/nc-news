@@ -147,7 +147,7 @@ flex-direction: column;
 
 .article-title{
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .article-body{
@@ -196,7 +196,7 @@ flex-direction: column;
   margin: 1px 5px;
 }
 .comments-header{
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .comments-number{
@@ -237,6 +237,7 @@ flex-direction: column;
 
 .comment-body {
   margin-bottom: 10px;
+  font-size: 10px;
 }
 
 
