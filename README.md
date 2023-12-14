@@ -49,7 +49,7 @@ cd nc-news
 
 Install dependencies:
 
----
+```
 
 npm install
 
