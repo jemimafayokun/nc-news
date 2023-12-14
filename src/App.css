@@ -222,6 +222,7 @@ flex-direction: column;
 
 .comment-author {
   font-weight: bold;
+  font-size: 14px;
   margin-right: 800px;
   color: black;
 }
@@ -269,6 +270,22 @@ flex-direction: column;
     color: #fff;
   }
 }
+
+.error-container {
+  border: 1px solid #ff4d4d;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ffe6e6;
+}
+
+.error-heading {
+  color: #ff4d4d;
+}
+
+.error-message {
+  color: #ff4d4d;
+}
+
 @media (max-width: 767px) {
   .fixed-elements-container {
     flex-direction: row;

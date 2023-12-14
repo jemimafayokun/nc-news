@@ -5,6 +5,7 @@ import "./App.css";
 import Articles from "./pages/ArticlesPage";
 import ArticlePage from "./pages/ArticlePage";
 import { UserProvider } from "./context/UserContext";
+import Error from "./component/Error";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Articles />} />
             <Route path="/articles/:articleId" element={<ArticlePage />} />
             <Route path="/articles/topics/:topic" element={<Articles/>}/>
+            <Route path="/*" element={<Error message={'Route not found!'}/>}/>
           </Routes>
         </main>
       </BrowserRouter>
