@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getAllArticles } from "../api";
 import { useParams } from "react-router-dom";
+import Error from "./Error";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("DESC");
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError]= useState(null)
   const { topic } = useParams();
 
   useEffect(() => {
@@ -18,8 +20,10 @@ const ArticleList = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching articles:", error);
+        const {response} = error
+        console.log(error)
         setIsLoading(false);
+        setError(`${response.status}: ${response.data.msg}`);
       });
   }, [topic, sortBy, orderBy]);
 
@@ -52,7 +56,7 @@ const ArticleList = () => {
         </section>
       </div>
       <section>
-        {!isLoading && articles.length === 0 && <p>No articles found.</p>}
+        {!isLoading && articles.length === 0 && <Error  message={error}/>}
         <ul className="article-list">
           {isLoading && <p>Loading...</p>}
           {!isLoading &&

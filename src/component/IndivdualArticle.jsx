@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getArticleById, patchArticle } from "../api";
 import { useParams } from "react-router-dom";
 import CommentList from "./CommentList";
+import Error from "./Error";
+
 
 const IndividualArticle = () => {
   const [article, setArticle] = useState({});
@@ -16,9 +18,10 @@ const IndividualArticle = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching article:", error);
+        const {response} = error
+        console.log(error)
         setIsLoading(false);
-        setError("Failed to fetch article. Please check your internet connection or try again later."); 
+        setError(`${response.status}: ${response.data.msg}`); 
       });
   }, [articleId]);
 
@@ -39,9 +42,8 @@ const IndividualArticle = () => {
   return (
     <div className="article-card">
       {isLoading && <p>Loading...</p>}
-      {error && <p className="error-message">{error}</p>}
-      {!isLoading && Object.keys(article).length === 0 && (
-        <p>No article found.</p>
+      {!isLoading && error && (
+        <Error message={error} />
       )}
       {!isLoading && Object.keys(article).length > 0 && (
         <>
