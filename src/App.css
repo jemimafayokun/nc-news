@@ -246,6 +246,8 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
  justify-content: center;
+ margin-left: 150px;
+ margin-bottom: 30px;
 }
 
 .comment-box{
@@ -254,21 +256,36 @@ flex-direction: column;
   height: 80px;
 }
 
-.comment-button{
-  width: 90px;
+.comment-button {
+  width: 100px;
   height: 40px;
-  border: 2px solid #888; 
-  border-radius: 20px;
-  background-color: #ddd;
-  color: #333; 
+  border: 2px solid #4CAF50; 
+  border-radius: 25px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease; 
   margin-left: 10px;
   align-self: center;
 
   &:hover {
-    background-color: #888; 
-    color: #fff;
+    background-color: #45a049; 
+    color: #fff; 
   }
+
+  &:disabled {
+    background-color: #ccc; 
+    color: #999; 
+    border-color: #ccc; 
+    cursor: not-allowed;
+  }
+}
+
+.char-warning{
+  font-size: 12px;
+  margin-left: 5px;
 }
 
 .error-container {

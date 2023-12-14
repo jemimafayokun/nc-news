@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { postComment } from "../api";
 import { useParams } from "react-router-dom";
+import Error from "./Error";
 
 const CommentAdder = ({ setComments }) => {
   const [input, setInput] = useState('');
@@ -41,10 +42,12 @@ const CommentAdder = ({ setComments }) => {
           multiline = "true"
           placeholder="What are your thoughts?"
           value={input}
-          onChange={updateInput}>
-        </textarea>
+          onChange={updateInput}
+         />
+          {input.length > 150 ? <Error message={'reached maximum characters'}/>: <p className="char-warning">{`${150 - input.length} characters remaining`}</p>}
       </label>
-      <button className="comment-button"type="submit" disabled={isLoading}>{isLoading ? 'Posting...' : 'Post Comment'}</button>
+      <p className="char-warning">*150 char max</p>
+      <button className="comment-button"type="submit" disabled={isLoading || input.length === 0 || input.length >= 150}>{isLoading ? 'Posting...' : 'Post Comment'}</button>
       {error && <p className="error-message">{error}</p>}
     </form>
 
