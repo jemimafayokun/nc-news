@@ -44,7 +44,7 @@ const CommentAdder = ({ setComments }) => {
           value={input}
           onChange={updateInput}
          />
-          {input.length > 150 ? <Error message={'reached maximum characters'}/>: <p className="char-warning">{`${150 - input.length} characters remaining`}</p>}
+          {input.length >= 150 ? <Error message={'reached maximum characters'}/>: <p className="char-warning">{`${150 - input.length} characters remaining`}</p>}
       </label>
       <p className="char-warning">*150 char max</p>
       <button className="comment-button"type="submit" disabled={isLoading || input.length === 0 || input.length >= 150}>{isLoading ? 'Posting...' : 'Post Comment'}</button>
