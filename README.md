@@ -25,7 +25,6 @@ To run News Box locally, make sure you have Node.js installed. The minimum versi
 You can check your Node version using:
 
 ```
-
 node --version
 
 ```
@@ -35,7 +34,6 @@ node --version
 Clone the repository:
 
 ```
-
 git clone https://github.com/jemimafayokun/nc-news.git
 
 ```
@@ -43,7 +41,6 @@ git clone https://github.com/jemimafayokun/nc-news.git
 Navigate to the project directory:
 
 ```
-
 cd nc-news
 
 ```
@@ -51,7 +48,6 @@ cd nc-news
 Install dependencies:
 
 ```
-
 npm install
 
 ```
