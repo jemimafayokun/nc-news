@@ -40,7 +40,7 @@ const IndividualArticle = () => {
   };
 
   return (
-    <div className="article-card">
+    <div className="indiv-article-card">
       {isLoading && <p>Loading...</p>}
       {!isLoading && error && (
         <Error message={error} />
