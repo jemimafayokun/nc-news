@@ -26,7 +26,6 @@ You can check your Node version using:
 
 ```
 node --version
-
 ```
 
 ### Follow these steps to get News Box up and running on your machine:
@@ -35,28 +34,24 @@ Clone the repository:
 
 ```
 git clone https://github.com/jemimafayokun/nc-news.git
-
 ```
 
 Navigate to the project directory:
 
 ```
 cd nc-news
-
 ```
 
 Install dependencies:
 
 ```
 npm install
-
 ```
 
 Start the development server:
 
 ```
 npm run dev
-
 ```
 
 Happy news reading! 📰🚀
