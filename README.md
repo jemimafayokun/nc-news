@@ -15,7 +15,7 @@ News Box is a React-based news app that allows users to:
 - Order articles in ascending or descending order.
 
 ## Back End Repository
-For the back end magic, check out the [back end repository][https://github.com/jemimafayokun/news-reporter]
+For the back end server, check out the [back end repository](https://github.com/jemimafayokun/news-reporter)
 
 ## Local Setup
 
@@ -58,7 +58,6 @@ npm install
 Start the development server:
 
 ```
-
 npm run dev
 
 ```
